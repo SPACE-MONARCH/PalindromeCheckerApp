@@ -1,26 +1,21 @@
 import java.util.*;
 public class PalindromeCheckerApp {
     public static void main(String[] args){
-        Scanner sc = new Scanner(System.in);
-        String Word = sc.nextLine();
-        char[] charArray = Word.toLowerCase().toCharArray();
-        boolean isPalindrome = true;
-        int start = 0;
-        int end = charArray.length - 1;
-        while (start < end) {
-            if (charArray[start] != charArray[end]) {
-                isPalindrome = false;
-                break;
-            }
-            start++;
-            end--;
+        String Word = "Level";
+        String lowerCase = Word.toLowerCase();
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < lowerCase.length(); i++) {
+            stack.push(lowerCase.charAt(i));
         }
-        if (isPalindrome) {
-            System.out.println("The word \"" + Word + "\" is a Palindrome (Using char array).");
+        String Reversed = "";
+        while (!stack.isEmpty()) {
+            Reversed = Reversed + stack.pop();
+        }
+        if (lowerCase.equals(Reversed)) {
+            System.out.println("UC5: The word \"" + Word + "\" is a Palindrome (Using Stack).");
         } else {
-            System.out.println("The word \"" + Word + "\" is NOT a Palindrome (Using char array).");
+            System.out.println("UC5: The word \"" + Word + "\" is NOT a Palindrome (Using Stack).");
         }
-        System.out.println("UC4 Completed Successfully.");
-        System.out.println();
+        System.out.println("UC5 Completed Successfully.");
     }
 }
